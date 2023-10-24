@@ -1,0 +1,26 @@
+Hay que compilar los 3rdparty cada vez?
+
+# sudo xhost +
+access control disabled, clients can connect from any host
+# export DISPLAY=:0.0
+# docker run -it --env DISPLAY=unix$DISPLAY --privileged  --volume /tmp/.X11-unix:/tmp/.X11-unix .. rest of your Docker arugments
+
+PANGOLIN
+$ cd 3rdparties
+# Clone Pangolin along with it's submodules
+$ git clone --recursive https://github.com/stevenlovegrove/Pangolin.git
+
+TODO: Copy to docker_folder and add "-y"
+Pangolin/scripts/install_prerequisites.sh
+
+# with Ninja for faster builds (sudo apt install ninja-build)
+cmake -B build -GNinja
+cmake --build build
+
+SOPHUS
+git clone git@github.com:strasdat/Sophus.git
+cmake -B build -GNinja -DUSE_BASIC_LOGGING=ON
+
+ERRORES
+error while loading shared libraries: libpango_windowing.so: cannot open shared object file: No such file or directory
+sudo ldconfig
