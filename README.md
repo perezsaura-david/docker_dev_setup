@@ -8,3 +8,11 @@ As this containers are ment for developing and not for deploying there are sever
  - Neovim and tmux config are imported from the host machine: a lot of volumes are created related with this and some dependencies inside the Dockerfiles.
  - SSH keys can be forwarded by uncommenting .ssh folder line in docker-compose.yml
 
+Basic usage:
+- $ cd [/path/to/docker/folder]
+- # Build docker image
+- $ docker build . -t [docker-image-name]
+- # Compose container (--detach)
+- $ docker compose up -d
+- # Open a bash command shell into the container
+- $ docker exec -it [docker-container-name] /bin/bash

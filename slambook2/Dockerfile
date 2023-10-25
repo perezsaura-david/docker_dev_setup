@@ -38,7 +38,10 @@ WORKDIR /home/$USERNAME
 RUN mkdir .config
 RUN mkdir .local/share -p
 
-COPY 3rdparty /home/user/3rdparty
+RUN git clone --recursive https://github.com/stevenlovegrove/Pangolin.git /home/user/3rdparty/Pangolin
+RUN git clone https://github.com/strasdat/Sophus.git /home/user/3rdparty/Sophus
+RUN git clone https://github.com/ceres-solver/ceres-solver.git /home/user/3rdparty/ceres-solver
+RUN git clone https://github.com/RainerKuemmerle/g2o.git /home/user/3rdparty/g2o
 # Add -y to the last line of install_prerequisites.sh
 RUN sudo sed -i '$ s/$/ -y/' /home/user/3rdparty/Pangolin/scripts/install_prerequisites.sh
 RUN /home/user/3rdparty/Pangolin/scripts/install_prerequisites.sh recommended
