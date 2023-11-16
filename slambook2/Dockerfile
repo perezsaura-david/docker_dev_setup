@@ -48,4 +48,5 @@ RUN /home/user/3rdparty/Pangolin/scripts/install_prerequisites.sh recommended
 RUN cd /home/user/3rdparty/Pangolin && sudo cmake -B build -GNinja && sudo cmake --build build --target install
 RUN cd /home/user/3rdparty/Sophus && sudo cmake -B build -GNinja && sudo cmake --build build --target install
 RUN cd /home/user/3rdparty/ceres-solver && sudo cmake -B ceres-bin -GNinja -DCXX11=ON -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_EXAMPLES=OFF -DBUILD_TESTING=OFF && sudo cmake --build ceres-bin --target install
+RUN sudo apt-get install libsuitesparse-dev -y
 RUN cd /home/user/3rdparty/g2o && sudo cmake -B build -GNinja && sudo cmake --build build --target install
